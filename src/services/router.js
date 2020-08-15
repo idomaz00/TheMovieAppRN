@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { MoviesHome } from '../pages';
+import { LogoTitle } from '../components';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ const AppNavigation = () => {
             backgroundColor: '#0B253F',
           },
           headerTitleAlign: 'center',
+          headerTitle: (props) => <LogoTitle {...props} />,
         }}>
         <Stack.Screen name="Home" component={MoviesHome} />
       </Stack.Navigator>

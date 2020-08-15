@@ -4,7 +4,7 @@ import { SafeAreaView, StyleSheet, StatusBar, Text, View } from 'react-native';
 const MoviesHome = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle="light-content" backgroundColor="#0B253F" />
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.mainView}>
           <Text>What's popular?</Text>

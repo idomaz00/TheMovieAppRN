@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { MoviesHome } from '../pages';
+import { PopularMovies } from '../pages';
 import { LogoTitle } from '../components';
 
 const Stack = createStackNavigator();
@@ -19,7 +19,7 @@ const AppNavigation = () => {
           headerTitleAlign: 'center',
           headerTitle: (props) => <LogoTitle {...props} />,
         }}>
-        <Stack.Screen name="Home" component={MoviesHome} />
+        <Stack.Screen name="Home" component={PopularMovies} />
       </Stack.Navigator>
     </NavigationContainer>
   );

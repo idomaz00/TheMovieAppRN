@@ -1,1 +1,1 @@
-export { default as MoviesHome } from './moviesHome';
+export { default as PopularMovies } from './popularMovies';

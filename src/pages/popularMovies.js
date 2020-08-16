@@ -1,7 +1,7 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, StatusBar, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, StatusBar, View } from 'react-native';
 
-import { Search } from '../components';
+import { Search, TextH1 } from '../components';
 
 const PopularMovies = () => {
   return (
@@ -10,7 +10,7 @@ const PopularMovies = () => {
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.mainView}>
           <Search />
-          <Text>What's popular?</Text>
+          <TextH1 text="What's popular?" />
         </View>
       </SafeAreaView>
     </>

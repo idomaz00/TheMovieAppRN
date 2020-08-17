@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 
-export default function usePopularMovies() {
+export default function useMoviesList() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  // const [isSearching, setIsSearching] = useState(false);
+  const [endpoint, setEndpoint] = useState('/movie/popular');
+  const [query, setQuery] = useState(null);
 
   const fetchMoreMovies = () => {
     if (page < totalPages) {
@@ -13,15 +16,27 @@ export default function usePopularMovies() {
   };
 
   const refreshMovies = () => {
+    setMovies([]);
     setPage(1);
     setIsRefreshing(true);
   };
 
+  const clearMovies = () => {
+    setMovies([]);
+    setPage(1);
+  };
+
   useEffect(() => {
+    let url = `https://api.themoviedb.org/3${endpoint}?api_key=effc234025ec1a7e1ddc9bd4d8ffb3e0&language=en-US`;
+    if (query && query !== '') {
+      url += `&query=${query}`;
+    }
+    url += `&page=${page}`;
+
     const handleFetchMovies = async () => {
-      const result = await fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=effc234025ec1a7e1ddc9bd4d8ffb3e0&language=en-US&page=${page}`,
-      );
+      console.log('handleFetchMovies', endpoint, query, page);
+
+      const result = await fetch(url);
 
       if (result.ok) {
         const moviesResponse = await result.json();
@@ -41,11 +56,21 @@ export default function usePopularMovies() {
     };
 
     try {
-      handleFetchMovies();
+      if (endpoint && endpoint !== '') {
+        handleFetchMovies();
+      }
     } catch (e) {
       console.log('error in calll', e);
     }
-  }, [page]);
+  }, [endpoint, query, page]);
 
-  return [movies, fetchMoreMovies, refreshMovies, isRefreshing];
+  return [
+    movies,
+    fetchMoreMovies,
+    refreshMovies,
+    isRefreshing,
+    setEndpoint,
+    setQuery,
+    clearMovies,
+  ];
 }

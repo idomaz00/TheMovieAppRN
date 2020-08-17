@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, TouchableHighlight, Text, View } from 'react-native';
 
-const CancelButton = () => {
+const CancelButton = ({ handleCancelSearch }) => {
   return (
-    <TouchableHighlight>
+    <TouchableHighlight onPress={handleCancelSearch}>
       <View style={styles.buttonWrapper}>
         <Text style={styles.buttonLabel}>Cancel</Text>
       </View>

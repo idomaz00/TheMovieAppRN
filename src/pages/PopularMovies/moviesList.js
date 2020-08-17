@@ -7,16 +7,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import usePopularMovies from '../../services/hooks/usePopularMovies';
 
-const MoviesList = () => {
+const MoviesList = ({
+  movies,
+  fetchMoreMovies,
+  refreshMovies,
+  isRefreshing,
+}) => {
   const navigation = useNavigation();
-  const [
-    movies,
-    fetchMoreMovies,
-    refreshMovies,
-    isRefreshing,
-  ] = usePopularMovies();
 
   const handleOnPress = (item) => {
     console.log(item);

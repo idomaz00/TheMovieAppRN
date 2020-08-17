@@ -38,9 +38,9 @@ const ImageCaption = ({
         <View style={styles.genresContainer}>
           {genres && genres.length
             ? genres.map((genre, index) => (
-                <View>
+                <View key={genre.id.toString()}>
                   <TextTMDB {...styles.textWhite}>
-                    {genre}
+                    {genre.name}
                     {genres.length > 1 && genres.length - 1 !== index
                       ? ', '
                       : null}

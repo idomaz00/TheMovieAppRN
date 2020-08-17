@@ -4,11 +4,20 @@ import { StyleSheet, View } from 'react-native';
 import SearchTextInput from './searchTextInput';
 import CancelButton from './cancelButton';
 
-const SearchContainer = () => {
+const SearchContainer = ({
+  isSearchActive,
+  onSearchStart,
+  onSearchCancel,
+  onSearchQuery,
+}) => {
   return (
     <View style={styles.container}>
-      <SearchTextInput />
-      <CancelButton />
+      <SearchTextInput
+        isSearchActive={isSearchActive}
+        onSearchStart={onSearchStart}
+        onSearchQuery={onSearchQuery}
+      />
+      {isSearchActive && <CancelButton handleCancelSearch={onSearchCancel} />}
     </View>
   );
 };

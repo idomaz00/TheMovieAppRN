@@ -1,5 +1,11 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, ScrollView, View } from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  Platform,
+  View,
+} from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { TextH1, TextTMDB } from '../../components';
 import ImageCaption from './imageCaption';
@@ -42,7 +48,9 @@ const MovieDetails = () => {
         ) : null}
         <View style={styles.overviewSectionContainer}>
           <View>
-            <TextH1 text="Overview" />
+            <TextTMDB customTextStyles={styles.overviewTitle}>
+              Overview
+            </TextTMDB>
           </View>
           <View>
             <TextTMDB {...styles.textBlack}>{overview}</TextTMDB>
@@ -63,6 +71,11 @@ const styles = StyleSheet.create({
   },
   textBlack: {
     color: '#000',
+  },
+  overviewTitle: {
+    fontWeight: Platform.OS === 'ios' ? '500' : 'bold',
+    fontSize: 20,
+    marginVertical: 15,
   },
 });
 

@@ -23,21 +23,21 @@ export default function useMovieDetails(movieId) {
 }
 
 function prepareMovieData(movieData) {
-  const { backdrop_path, title, overview } = movieData;
-  const genres =
-    movieData.genres && movieData.genres.length > 0
-      ? movieData.genres.map((item) => item.name)
-      : [];
+  const { backdrop_path, title, overview, genres } = movieData;
   const cast =
     movieData.credits && movieData.credits.cast.length > 0
       ? movieData.credits.cast.map((item) => {
-          return { id: item.id, character: item.character, name: item.name }; //todo: merge items with same id
+          return {
+            id: item.credit_id,
+            character: item.character,
+            name: item.name,
+          }; //todo: merge items with same id
         })
       : [];
   const crew =
     movieData.credits && movieData.credits.crew.length > 0
       ? movieData.credits.crew.map((item) => {
-          return { id: item.id, job: item.job, name: item.name }; //todo: merge items with same id
+          return { id: item.credit_id, job: item.job, name: item.name }; //todo: merge items with same id
         })
       : [];
   const release_year =

@@ -31,13 +31,13 @@ function prepareMovieData(movieData) {
   const cast =
     movieData.credits && movieData.credits.cast.length > 0
       ? movieData.credits.cast.map((item) => {
-          return { character: item.character, name: item.name };
+          return { id: item.id, character: item.character, name: item.name }; //todo: merge items with same id
         })
       : [];
   const crew =
     movieData.credits && movieData.credits.crew.length > 0
       ? movieData.credits.crew.map((item) => {
-          return { job: item.job, name: item.name };
+          return { id: item.id, job: item.job, name: item.name }; //todo: merge items with same id
         })
       : [];
   const release_year =

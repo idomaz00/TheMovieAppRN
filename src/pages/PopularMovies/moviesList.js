@@ -20,14 +20,16 @@ const MoviesList = () => {
 
   const handleOnPress = (item) => {
     console.log(item);
-    navigation.navigate('MovieDetails', { movieId: item.id });
+    navigation.navigate('MovieDetails', { movieItemId: item.id });
   };
 
   const renderRow = ({ item }) => {
     return (
       <TouchableOpacity onPress={() => handleOnPress(item)}>
         <Image
-          source={{ uri: `https://image.tmdb.org/t/p/w185${item.poster_path}` }}
+          source={{
+            uri: `https://image.tmdb.org/t/p/w185${item.poster_path}`,
+          }}
           style={styles.logoImage}
           resizeMode="cover"
         />

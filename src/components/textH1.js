@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 20,
+    color: '#0B253F',
     // android does not respect font weight property expressed in numbers
     fontWeight: Platform.OS === 'ios' ? '500' : 'bold', //todo: replace for android with semi bold font family
   },

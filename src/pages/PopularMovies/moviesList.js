@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+const defaultImage = require('../../assets/film-placeholder.png');
+
 const MoviesList = ({
   movies,
   fetchMoreMovies,
@@ -22,12 +24,16 @@ const MoviesList = ({
   };
 
   const renderRow = ({ item }) => {
+    const posterImage = item.poster_path
+      ? {
+          uri: `https://image.tmdb.org/t/p/w185${item.poster_path}`,
+        }
+      : defaultImage;
     return (
       <TouchableOpacity onPress={() => handleOnPress(item)}>
         <Image
-          source={{
-            uri: `https://image.tmdb.org/t/p/w185${item.poster_path}`,
-          }}
+          source={posterImage}
+          defaultImage={defaultImage}
           style={styles.logoImage}
           resizeMode="cover"
         />

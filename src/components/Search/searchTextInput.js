@@ -66,9 +66,11 @@ const SearchTextInput = ({ isSearchActive, onSearchStart, onSearchQuery }) => {
           ref={inputRef}
         />
       </View>
-      <TouchableOpacity onPress={handleClearSearch}>
-        <Image source={clearIconUrl} style={styles.clearIcon} />
-      </TouchableOpacity>
+      {searchText.length > 0 ? (
+        <TouchableOpacity onPress={handleClearSearch}>
+          <Image source={clearIconUrl} style={styles.clearIcon} />
+        </TouchableOpacity>
+      ) : null}
     </View>
   );
 };

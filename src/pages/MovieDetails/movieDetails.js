@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-import { TextH1, TextTMDB } from '../../components';
+import { TextTMDB } from '../../components';
 import ImageCaption from './imageCaption';
 import CreditsList from './creditsList';
 import useMovieDetails from '../../services/hooks/useMovieDetails';
@@ -34,18 +34,16 @@ const MovieDetails = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView>
-        {backdrop_path ? (
-          <ImageCaption
-            {...{
-              backdrop_path,
-              title,
-              release_year,
-              release_date,
-              genres,
-              runtime,
-            }}
-          />
-        ) : null}
+        <ImageCaption
+          {...{
+            backdrop_path,
+            title,
+            release_year,
+            release_date,
+            genres,
+            runtime,
+          }}
+        />
         <View style={styles.overviewSectionContainer}>
           <View>
             <TextTMDB customTextStyles={styles.overviewTitle}>

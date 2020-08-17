@@ -10,6 +10,8 @@ import {
 
 import { TextTMDB } from '../../components';
 
+const defaultImage = require('../../assets/film-placeholder.png');
+
 const ImageCaption = ({
   backdrop_path,
   title,
@@ -18,9 +20,14 @@ const ImageCaption = ({
   genres,
   runtime,
 }) => {
+  const backdropImage = backdrop_path
+    ? {
+        uri: `https://image.tmdb.org/t/p/w780${backdrop_path}`,
+      }
+    : defaultImage;
   return (
     <ImageBackground
-      source={{ uri: `https://image.tmdb.org/t/p/w780${backdrop_path}` }}
+      source={backdropImage}
       style={styles.movieImage}
       resizeMode="cover">
       <View style={styles.imageCaptionContainer}>

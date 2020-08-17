@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   Platform,
@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 
-import { Search, TextH1, TextTMDB } from '../../components';
+import { Search, TextTMDB } from '../../components';
 
 import MoviesList from './moviesList';
 import useMoviesList from '../../services/hooks/useMoviesList';
@@ -54,18 +54,20 @@ const PopularMovies = () => {
             onSearchCancel={handleSearchCancel}
             isSearchActive={isSearchActive}
           />
-          {/* <TextH1 text="What's popular?" /> */}
+
           {isSearchActive && movies.length > 0 ? (
             <TextTMDB
               customTextStyles={
                 styles.searchTitle
               }>{`Showing ${movies.length} results`}</TextTMDB>
           ) : null}
+
           {!isSearchActive ? (
             <TextTMDB customTextStyles={styles.popularTitle}>
               {popularTitle}
             </TextTMDB>
           ) : null}
+
           <MoviesList
             {...{ movies, fetchMoreMovies, refreshMovies, isRefreshing }}
           />

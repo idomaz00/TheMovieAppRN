@@ -17,6 +17,7 @@ const TextTMDB = ({
           fontSize,
           color,
           fontWeight,
+          textAlign,
         },
         customTextStyles,
       ]}>
@@ -30,8 +31,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#0B253F',
     fontWeight: 'normal',
-    // android does not respect font weight property expressed in numbers
-    // fontWeight: Platform.OS === 'ios' ? '500' : 'bold', //todo: replace for android with semi bold font family
   },
 });
 

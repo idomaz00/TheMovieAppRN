@@ -15,8 +15,11 @@ const AppNavigation = () => {
         screenOptions={{
           headerStyle: {
             backgroundColor: '#0B253F',
+            //style to remove faint white line on ios, that is visible between header and image on movie details page
+            shadowOpacity: 0,
           },
           headerTitleAlign: 'center',
+          headerBackTitleVisible: false,
           headerTintColor: '#fff',
           headerTitle: (props) => <LogoTitle {...props} />,
         }}>

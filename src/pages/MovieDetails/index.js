@@ -12,12 +12,9 @@ import ImageCaption from './imageCaption';
 import CreditsList from './creditsList';
 import useMovieDetails from '../../services/hooks/useMovieDetails';
 
-//todo: image overlay linear gradient if time
-
 const MovieDetails = () => {
   const route = useRoute();
   const [movie, isLoading] = useMovieDetails(route.params.movieItemId);
-  console.log('movie details', movie);
 
   const {
     backdrop_path,

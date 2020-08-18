@@ -1,2 +1,2 @@
-export { default as PopularMovies } from './PopularMovies/popularMovies';
-export { default as MovieDetails } from './MovieDetails/movieDetails';
+export { default as PopularMovies } from './PopularMovies';
+export { default as MovieDetails } from './MovieDetails';

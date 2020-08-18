@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_KEY } from '../tmdb-apikey';
 
 export default function useMoviesList() {
   const [movies, setMovies] = useState([]);
@@ -27,7 +28,7 @@ export default function useMoviesList() {
   };
 
   useEffect(() => {
-    let url = `https://api.themoviedb.org/3${endpoint}?api_key=effc234025ec1a7e1ddc9bd4d8ffb3e0&language=en-US`;
+    let url = `https://api.themoviedb.org/3${endpoint}?api_key=${API_KEY}&language=en-US`;
     if (query && query !== '') {
       url += `&query=${query}`;
     }

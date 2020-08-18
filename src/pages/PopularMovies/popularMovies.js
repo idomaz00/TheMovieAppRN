@@ -69,7 +69,10 @@ const PopularMovies = () => {
           ) : null}
 
           <MoviesList
-            {...{ movies, fetchMoreMovies, refreshMovies, isRefreshing }}
+            movies={movies}
+            fetchMoreMovies={fetchMoreMovies}
+            refreshMovies={refreshMovies}
+            isRefreshing={isRefreshing}
           />
         </View>
       </SafeAreaView>

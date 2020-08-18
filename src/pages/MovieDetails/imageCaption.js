@@ -13,16 +13,16 @@ import { TextTMDB } from '../../components';
 const defaultImage = require('../../assets/film-placeholder.png');
 
 const ImageCaption = ({
-  backdrop_path,
+  backdropPath,
   title,
-  release_year,
-  release_date,
+  releaseYear,
+  releaseDate,
   genres,
   runtime,
 }) => {
-  const backdropImage = backdrop_path
+  const backdropImage = backdropPath
     ? {
-        uri: `https://image.tmdb.org/t/p/w780${backdrop_path}`,
+        uri: `https://image.tmdb.org/t/p/w780${backdropPath}`,
       }
     : defaultImage;
   return (
@@ -34,12 +34,12 @@ const ImageCaption = ({
         <View style={styles.titleContainer}>
           <TextTMDB {...styles.titleStyle}>
             {title}
-            {release_year ? <Text>({release_year})</Text> : null}
+            {releaseYear ? <Text>({releaseYear})</Text> : null}
           </TextTMDB>
         </View>
         <View style={styles.releaseContainer}>
-          {release_date ? (
-            <TextTMDB {...styles.textWhite}>{release_date}</TextTMDB>
+          {releaseDate ? (
+            <TextTMDB {...styles.textWhite}>{releaseDate}</TextTMDB>
           ) : null}
         </View>
         <View style={styles.genresContainer}>
@@ -77,6 +77,12 @@ const styles = StyleSheet.create({
     left: 0,
     paddingHorizontal: 16,
     paddingVertical: 10,
+    //
+    shadowColor: '#000',
+    shadowOffset: { width: 2, height: 3 },
+    shadowOpacity: 0.8,
+    shadowRadius: 5,
+    elevation: 5,
   },
   titleContainer: {
     marginVertical: 5,

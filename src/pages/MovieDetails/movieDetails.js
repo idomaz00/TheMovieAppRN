@@ -35,14 +35,12 @@ const MovieDetails = () => {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView>
         <ImageCaption
-          {...{
-            backdrop_path,
-            title,
-            release_year,
-            release_date,
-            genres,
-            runtime,
-          }}
+          backdropPath={backdrop_path}
+          title={title}
+          releaseYear={release_year}
+          releaseDate={release_date}
+          genres={genres}
+          runtime={runtime}
         />
         <View style={styles.overviewSectionContainer}>
           <View>
@@ -51,9 +49,9 @@ const MovieDetails = () => {
             </TextTMDB>
           </View>
           <View>
-            <TextTMDB {...styles.textBlack}>{overview}</TextTMDB>
+            <TextTMDB customTextStyles={styles.textBlack}>{overview}</TextTMDB>
           </View>
-          <CreditsList {...{ cast, crew }} />
+          <CreditsList cast={cast} crew={crew} />
         </View>
       </ScrollView>
     </SafeAreaView>

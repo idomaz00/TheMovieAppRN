@@ -7,7 +7,6 @@ export default function useMoviesList() {
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
-  // const [isSearching, setIsSearching] = useState(false);
   const [endpoint, setEndpoint] = useState('/movie/popular');
   const [query, setQuery] = useState(null);
 

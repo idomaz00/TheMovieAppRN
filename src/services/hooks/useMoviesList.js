@@ -5,6 +5,7 @@ export default function useMoviesList() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
   // const [isSearching, setIsSearching] = useState(false);
   const [endpoint, setEndpoint] = useState('/movie/popular');
@@ -35,9 +36,10 @@ export default function useMoviesList() {
     url += `&page=${page}`;
 
     const handleFetchMovies = async () => {
-      console.log('handleFetchMovies', endpoint, query, page);
-
+      // console.log('handleFetchMovies', endpoint, query, page);
+      setIsLoading(true);
       const result = await fetch(url);
+      setIsLoading(false);
 
       if (result.ok) {
         const moviesResponse = await result.json();
@@ -70,6 +72,7 @@ export default function useMoviesList() {
     fetchMoreMovies,
     refreshMovies,
     isRefreshing,
+    isLoading,
     setEndpoint,
     setQuery,
     clearMovies,

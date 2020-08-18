@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-import { TextTMDB } from '../../components';
+import { TextTMDB, Loader } from '../../components';
 import ImageCaption from './imageCaption';
 import CreditsList from './creditsList';
 import useMovieDetails from '../../services/hooks/useMovieDetails';
@@ -16,7 +16,7 @@ import useMovieDetails from '../../services/hooks/useMovieDetails';
 
 const MovieDetails = () => {
   const route = useRoute();
-  const [movie] = useMovieDetails(route.params.movieItemId);
+  const [movie, isLoading] = useMovieDetails(route.params.movieItemId);
   console.log('movie details', movie);
 
   const {
@@ -33,7 +33,7 @@ const MovieDetails = () => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ScrollView>
+      <ScrollView bounces={false}>
         <ImageCaption
           backdropPath={backdrop_path}
           title={title}
@@ -53,6 +53,7 @@ const MovieDetails = () => {
           </View>
           <CreditsList cast={cast} crew={crew} />
         </View>
+        <Loader isActive={isLoading} />
       </ScrollView>
     </SafeAreaView>
   );

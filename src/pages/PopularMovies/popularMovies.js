@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 
-import { Search, TextTMDB } from '../../components';
+import { Search, TextTMDB, Loader } from '../../components';
 
 import MoviesList from './moviesList';
 import useMoviesList from '../../services/hooks/useMoviesList';
@@ -18,6 +18,7 @@ const PopularMovies = () => {
     fetchMoreMovies,
     refreshMovies,
     isRefreshing,
+    isLoading,
     setEndpoint,
     setQuery,
     clearMovies,
@@ -74,6 +75,7 @@ const PopularMovies = () => {
             refreshMovies={refreshMovies}
             isRefreshing={isRefreshing}
           />
+          <Loader isActive={isLoading} />
         </View>
       </SafeAreaView>
     </>
